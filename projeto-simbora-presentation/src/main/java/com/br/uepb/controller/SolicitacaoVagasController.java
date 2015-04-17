@@ -1,14 +1,16 @@
 package com.br.uepb.controller;
 
-import java.util.ArrayList;
+import java.util.ArrayList;  
 import java.util.List;
 
+import com.br.uepb.business.Carona;
 import com.br.uepb.business.SolicitacaoVagas;
+
 
 public class SolicitacaoVagasController {
 
 	SolicitacaoVagas solicitacaoVagas;
-	static List<SolicitacaoVagas> solicitacoesVagas = new ArrayList<>();
+	public static List<SolicitacaoVagas> solicitacoesVagas = new ArrayList<>();
 	
 	public void zerarSistema(){
 		solicitacoesVagas.clear();
@@ -42,15 +44,49 @@ public class SolicitacaoVagasController {
 		
 	}
 	
-	public void rejeitarSolicitacao(String idSessao, String idSolicitacao){
+	public void rejeitarSolicitacao(String idSessao, String idSolicitacao) throws Exception{
 		for(SolicitacaoVagas solicitacao : solicitacoesVagas){
 			
 			if(solicitacao.getIdSolicitacao().equals(idSolicitacao)){
-				solicitacao.setStatus("Recusada");
-				return;
+				if(solicitacao.getStatus().equals("Pendente")){
+
+					solicitacao.setStatus("Recusada");
+					return;
+				}else{
+					throw new Exception("Solicita��o inexistente");
+				}
+				
+				
 			}
 			
 		}
+		
+	}
+	
+	public String getAtributo(String idSolicitacao, String atributo) {
+		for(SolicitacaoVagas solicitacao : solicitacoesVagas){
+			if(solicitacao.getIdSolicitacao().equals(idSolicitacao)){
+				try {
+					return new CaronaController().getAtributoCarona(solicitacao.getIdCarona(), atributo);
+				} catch (Exception e) {
+				}	
+				if (atributo.equals("Dono da carona")) {
+					for(Carona carona: CaronaController.getCaronas()){
+						if(carona.getIdCarona().equals(solicitacao.getIdCarona())){
+							return new UsuarioController().getAtributoUsuario(carona.getIdSessao(), "nome");
+						}
+					}
+						
+				}
+
+				if (atributo.equals("Dono da solicitacao")) {
+					return new UsuarioController().getAtributoUsuario(
+							solicitacao.getIdSessao(), "nome");
+				}
+			}
+		}
+
+		return "";
 	}
 	
 }

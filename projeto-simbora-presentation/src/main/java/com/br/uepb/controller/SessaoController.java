@@ -1,13 +1,11 @@
 package com.br.uepb.controller;
 
-import java.util.ArrayList; 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.br.uepb.business.Sessao;
 import com.br.uepb.business.Usuario;
 import com.br.uepb.exception.SessaoException;
-
-
 
 /**
  * Controla a {@link Sessao}. M�todos: <li>abrirSessao</li> <li></li>
@@ -26,10 +24,12 @@ public class SessaoController {
 
 	/**
 	 * Ao abrir a sess�o � necess�rio o login e senha do usu�rio. Esse metodo
-	 * retornar� o idSessao que � o login do usu�rio. Caso os parametros tenham sido 
-	 * inseridos errados ser� gerado um erro de <b>Usu�rio inexistente</b>
+	 * retornar� o idSessao que � o login do usu�rio. Caso os parametros tenham
+	 * sido inseridos errados ser� gerado um erro de <b>Usu�rio inexistente</b>
 	 *
-	 *<br>@see {@link Usuario} 
+	 * <br>
+	 * @see {@link Usuario}
+	 * 
 	 * @param login
 	 * @param senha
 	 * @return

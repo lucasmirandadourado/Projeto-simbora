@@ -3,13 +3,18 @@ package com.br.uepb.controller;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.lang.Integer;
 import java.util.List;
 
 import com.br.uepb.business.Carona;
 import com.br.uepb.business.Sessao;
 import com.br.uepb.exception.CaronaException;
 
-
+/**
+ * 
+ * @author Lucas Miranda e Bruno Clementino
+ *
+ */
 public class CaronaController {
 
 	private static List<Carona> caronas = new ArrayList<Carona>();
@@ -23,16 +28,16 @@ public class CaronaController {
 	public String localizarCarona(String idSessao, String origem, String destino)
 			throws Exception {
 		if (idSessao == null) {
-			throw new CaronaException("Sess�o inválida");
+			throw new CaronaException("Sess�o inv�lida");
 		}
 
 		if (origem.equals("-") || origem.equals("()") || origem.equals("!")
 				|| origem.equals("!?")) {
-			throw new CaronaException("Origem inválida");
+			throw new CaronaException("Origem inv�lida");
 		}
 
 		if (destino.equals(".") || destino.equals("()") || destino.equals("!?")) {
-			throw new CaronaException("Destino inválido");
+			throw new CaronaException("Destino inv�lido");
 		}
 
 		if (!origem.isEmpty() && !destino.isEmpty()) {
@@ -196,12 +201,12 @@ public class CaronaController {
 		}
 	}
 
-	/*
-	 * private boolean isNumero(String idSessao) { try { int id =
-	 * Integer.parseInt(idSessao); return true; } catch (Exception e) { return
-	 * false; }
+	/**
 	 * 
-	 * }
+	 * @param idCarona
+	 * @param atributo
+	 * @return
+	 * @throws CaronaException
 	 */
 	public String getAtributoCarona(String idCarona, String atributo)
 			throws CaronaException {

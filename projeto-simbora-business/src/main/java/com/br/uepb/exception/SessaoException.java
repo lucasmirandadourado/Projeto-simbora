@@ -3,7 +3,7 @@
  */
 package com.br.uepb.exception;
 
-import com.br.uepb.business.Sessao;
+import com.br.*;
 
 /**
  * Tratando errro de acesso da {@link Sessao}

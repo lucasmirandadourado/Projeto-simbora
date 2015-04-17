@@ -3,7 +3,7 @@ package com.br.uepb.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.br.uepb.business.PontoDeEncontro;
+import com.model.PontoDeEncontro;
 
 public class PontoDeEncontroController {
 	

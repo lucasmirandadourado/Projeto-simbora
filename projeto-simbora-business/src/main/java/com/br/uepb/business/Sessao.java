@@ -1,5 +1,9 @@
 package com.br.uepb.business;
-
+/**
+ * 
+ * @author Lucas Miranda e Bruno Clementino
+ *
+ */
 public class Sessao {
 	
 	private String idSessao;

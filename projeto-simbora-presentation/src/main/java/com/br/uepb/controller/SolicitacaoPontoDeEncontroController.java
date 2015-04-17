@@ -3,13 +3,14 @@
  */
 package com.br.uepb.controller;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 
 import com.br.uepb.business.PontoDeEncontro;
 import com.br.uepb.business.SolicitacaoPontoDeEncontro;
 import com.br.uepb.business.SolicitacaoVagas;
 import com.br.uepb.exception.CaronaException;
+
 
 /**
  * 
@@ -115,7 +116,7 @@ public class SolicitacaoPontoDeEncontroController {
 				return getAtributo(solicitacao, atributo);
 			}
 		}
-		return "";
+		return new SolicitacaoVagasController().getAtributo(idSolicitacao, atributo);
 	}
 
 	private String getAtributo(SolicitacaoPontoDeEncontro solicitacao, String atributo) {

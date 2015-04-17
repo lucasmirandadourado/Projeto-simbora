@@ -1,21 +1,23 @@
 package com.br.uepb.controller;
 
-import java.util.List;
+import java.util.List; 
 
 import com.br.uepb.business.Usuario;
-import com.br.uepb.exception.UsuarioException;
+import com.excessoes.UsuarioException;
 
 public class UsuarioController {
 
 	Usuario usuario;
 	String mensagemErro = "";
+	
 	/**
 	 * Aqui acredito que foi uma paradigma de programa��o bem conhecida para
 	 * poder solucionar esse problema. POG (Programa��o Orientada a Gambiarra).
-	 * Basicamente o que eu fiz: Como tivemos que criar a Class {@link SessaoController}
-	 * ai no metodo {@link SessaoController} 
+	 * Basicamente o que eu fiz: Como tivemos que criar a Class
+	 * {@link SessaoController} ai no metodo {@link SessaoController}
 	 */
 	List<Usuario> usuarios = SessaoController.getUsuarios();
+
 	// List<Usuario> usuarios = new ArrayList<>();
 
 	public void zerarSistema() {
@@ -67,24 +69,6 @@ public class UsuarioController {
 		}
 		return true;
 	}
-
-	// public String abrirSessao(String login, String senha) throws
-	// UsuarioException{
-	// //mensagemErro = "Usu�rio inexistente";
-	// for(Usuario usuario : usuarios){
-	// if( usuario.getLogin().equals(login) &&
-	// usuario.getSenha().equals(senha)){
-	// return usuarios.indexOf(usuario)+"";
-	// }
-	// else if(login==null || login.isEmpty() ||
-	// usuario.getLogin().equals(login) || usuario.getSenha().equals(senha)){
-	// //mensagemErro = "Login inv�lido";
-	// throw new UsuarioException("Login inv�lido");
-	// }
-	// }
-	//
-	// throw new UsuarioException("Usu�rio inexistente");
-	// }
 
 	public String getAtributoUsuario(String login, String atributo)
 			throws UsuarioException {
@@ -142,4 +126,16 @@ public class UsuarioController {
 		return usuarios.size();
 	}
 
+	/*
+	 * public String abrirSessao(String login, String senha) throws
+	 * 	UsuarioException{ //mensagemErro = "Usu�rio inexistente"; for(Usuario
+	 * 	usuario : usuarios){ if( usuario.getLogin().equals(login) &&
+	 * 	usuario.getSenha().equals(senha)){ return usuarios.indexOf(usuario)+""; }
+	 * 	else if(login==null || login.isEmpty() ||
+	 * 	usuario.getLogin().equals(login) || usuario.getSenha().equals(senha)){
+	 * //mensagemErro = "Login inv�lido"; throw new
+	 * UsuarioException("Login inv�lido"); } }
+	 * 
+	 * throw new UsuarioException("Usu�rio inexistente"); }
+	 */
 }
