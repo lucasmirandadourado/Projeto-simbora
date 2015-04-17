@@ -17,6 +17,7 @@ import com.br.uepb.exception.SessaoException;
  * @author Lucas Miranda e Bruno Clementino
  *
  */
+@Controller
 public class SessaoSingletonController {
 
 	/**

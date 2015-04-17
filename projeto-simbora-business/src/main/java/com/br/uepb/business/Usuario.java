@@ -1,5 +1,7 @@
 package com.br.uepb.business;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Usu�rio b�sico. Ele tem como fun��es: 
  * <li>logar ao sistema</li>
@@ -14,14 +16,19 @@ package com.br.uepb.business;
 
 public class Usuario {
 
+	@NotNull (message="Não pode ser nulo")
 	private String login;
+	
+	@NotNull (message="Não pode ser nulo")
 	private String senha;
+	
+	@NotNull (message = "O nome não pode ser nulo ou vázia.")
 	private String nome;
-	private String endereco;
+	private String endereco;	
 	private String email;
 
 	/** 
-	 * M�todo contrutor Default.
+	 * Metodo contrutor Default.
 	 */
 	public Usuario() {
 		// TODO Auto-generated constructor stub

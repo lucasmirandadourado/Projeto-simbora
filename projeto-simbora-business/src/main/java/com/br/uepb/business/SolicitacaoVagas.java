@@ -1,9 +1,12 @@
 package com.br.uepb.business;
 
+import javax.validation.constraints.NotNull;
+
 public class SolicitacaoVagas {
 	
+	@NotNull (message="O identificador está nulo.")
 	private String idSolicitacao;
-	private String idSessao;//identifica��o de quem solicitou a vaga
+	private String idSessao;//identificacao de quem solicitou a vaga
 	private String idCarona;
 	private String status = "Pendente";//Se a solicita��o foi Aceita, est� Pendente, ou foi Recusada.
 	
