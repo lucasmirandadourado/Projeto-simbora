@@ -1,12 +1,11 @@
 package com.br.uepb.dao.impl;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Service; 
 
-import com.br.uepb.dao.UserDAO;
 import com.br.uepb.domain.UsuarioDomain;
 
 @Service
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl implements UserImpl {
 
 	@Override
 	public UsuarioDomain getUser(String cpf) {

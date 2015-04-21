@@ -67,6 +67,16 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.5.8</version>
 		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.9.Final</version>
+		</dependency>
 	</dependencies>
 
 	<properties>
@@ -130,7 +140,7 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<modules>
 		<module>projeto-simbora-domain</module>
 		<module>projeto-simbora-business</module>
