@@ -1,11 +1,15 @@
 package com.br.uepb.dao;
 
-import java.util.List; 
+import java.util.List;  
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class SolicitacaoPontoDeEncontroDaoImp implements SolicitacaoPontoDeEncontroDao{
+import com.br.uepb.dao.impl.SolicitacaoPontoDeEncontroImpl;
+import com.br.uepb.domain.SolicitacaoPontoDeEncontro;
+import com.br.uepb.util.HibernateUtil;
+
+public class SolicitacaoPontoDeEncontroDao implements SolicitacaoPontoDeEncontroImpl {
 
 	@Override
 	public void save(SolicitacaoPontoDeEncontro solicitacaoPontoDeEncontro) {

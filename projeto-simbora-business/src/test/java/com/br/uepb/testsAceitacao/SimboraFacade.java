@@ -1,9 +1,11 @@
 package com.br.uepb.testsAceitacao;
 
-import com.br.uepb.exception.CaronaException;
+import com.br.uepb.exception.CaronaException; 
 import com.br.uepb.exception.PerfilException;
 import com.br.uepb.exception.SessaoException;
 import com.br.uepb.exception.UsuarioException;
+
+import easyaccept.EasyAccept;
 
 
 public class SimboraFacade {

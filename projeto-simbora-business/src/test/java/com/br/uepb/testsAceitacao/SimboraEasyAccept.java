@@ -1,6 +1,6 @@
 package com.br.uepb.testsAceitacao;
 
-import com.br.uepb.controller.CaronaController;
+import com.br.uepb.controller.CaronaController; 
 import com.br.uepb.controller.PerfilController;
 import com.br.uepb.controller.SessaoController;
 import com.br.uepb.controller.SolicitacaoPontoDeEncontroController;
@@ -8,8 +8,8 @@ import com.br.uepb.controller.SolicitacaoVagasController;
 import com.br.uepb.controller.UsuarioController;
 import com.br.uepb.dao.CaronaDao;
 import com.br.uepb.dao.PontoDeEncontroDaoImp;
-import com.br.uepb.dao.SolicitacaoPontoDeEncontroDaoImp;
-import com.br.uepb.dao.UsuarioDaoImp;
+import com.br.uepb.dao.SolicitacaoPontoDeEncontroDao;
+import com.br.uepb.dao.UsuarioDao;
 import com.br.uepb.dao.impl.SolicitacaoVagasDaoImp;
 import com.br.uepb.exception.CaronaException;
 import com.br.uepb.exception.PerfilException;
@@ -42,9 +42,9 @@ public class SimboraEasyAccept {
 		caronaController.caronas.clear();
 		solicitacaoVagasController.solicitacoesVagas.clear();
 		solicitacaoEncontroController.solicitacoes.clear();
-		new UsuarioDaoImp().excluirTudo();
+		new UsuarioDao().excluirTudo();
 		new CaronaDao().excluirTudo();
-		new SolicitacaoPontoDeEncontroDaoImp().excluirTudo();
+		new SolicitacaoPontoDeEncontroDao().excluirTudo();
 		new SolicitacaoVagasDaoImp().excluirTudo();
 		new PontoDeEncontroDaoImp().excluirTudo();
 		
@@ -149,11 +149,11 @@ public class SimboraEasyAccept {
 	}
 
 	public void reiniciarSistema() {
-		SessaoController.setUsuarios(new UsuarioDaoImp().list());
+		SessaoController.setUsuarios(new UsuarioDao().list());
 		UsuarioController.usuarios = SessaoController.getUsuarios();
-		CaronaController.caronas = new CaronaDaoImp().list();
+		CaronaController.caronas = new CaronaDao().list();
 		SolicitacaoVagasController.solicitacoesVagas = new SolicitacaoVagasDaoImp().list();
-		SolicitacaoPontoDeEncontroController.solicitacoes = new SolicitacaoPontoDeEncontroDaoImp().list();
+		SolicitacaoPontoDeEncontroController.solicitacoes = new SolicitacaoPontoDeEncontroDao().list();
 		
 	}
 

@@ -13,7 +13,6 @@ import com.br.uepb.controller.UsuarioController;
 import com.br.uepb.dao.CaronaDao;
 import com.br.uepb.dao.UsuarioDao;
 import com.br.uepb.domain.Carona;
-import com.br.uepb.domain.UsuarioDomain;
 import com.br.uepb.exception.CaronaException;
 import com.br.uepb.exception.SessaoException;
 
@@ -56,7 +55,7 @@ public class CaronaTest {
 		try {
 			assertEquals("mark", sessaoController.abrirSessao("mark", "m@rk"));
 		} catch (SessaoException e) {
-			assertEquals("Usu�rio inexistente", e.getMessage());
+			assertEquals("Usuário inexistente", e.getMessage());
 		}
 
 		try {

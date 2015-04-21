@@ -33,6 +33,7 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Easyaccept"/>
 	<classpathentry kind="src" path="/projeto-simbora-presentation"/>
 	<classpathentry kind="lib" path="C:/Users/Lucas Miranda/Documents/eclipse - JavaEE/plugins/org.junit_4.11.0.v201303080030/junit.jar">
 		<attributes>
