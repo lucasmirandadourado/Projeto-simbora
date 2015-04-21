@@ -30,7 +30,7 @@ public class Carona {
 	
 	private String idSessao;
 	/**
-	 * M�todo construtor default.
+	 * Método construtor default.
 	 */
 	public Carona() {
 		// TODO Auto-generated constructor stub
@@ -51,7 +51,7 @@ public class Carona {
 	public void setLocalDeDestino(String localDeDestino) {
 		this.localDeDestino = localDeDestino;
 	}
-
+	
 	public String getData() {
 		return data;
 	}

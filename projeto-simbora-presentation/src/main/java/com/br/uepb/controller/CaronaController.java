@@ -1,10 +1,10 @@
 package com.br.uepb.controller;
 
-import java.text.SimpleDateFormat; 
+import java.text.SimpleDateFormat;  
 import java.util.Date;
 import java.util.List;
 
-import com.br.uepb.dao.CaronaDaoImp;
+import com.br.uepb.dao.CaronaDao;
 import com.br.uepb.domain.Carona;
 import com.br.uepb.domain.Sessao;
 import com.br.uepb.exception.CaronaException;
@@ -17,14 +17,14 @@ import com.br.uepb.exception.SessaoException;
  */
 public class CaronaController {
 
-	public static List<Carona> caronas = new CaronaDaoImp().list();
+	public static List<Carona> caronas = new CaronaDao().list();
 	Carona carona;
 	List<Sessao> sessao = SessaoController.getSessoes();
 
 	public void zerarSistema() {
 		for (Carona carona : caronas) {
 			try {
-				new CaronaDaoImp().save(carona);
+				new CaronaDao().save(carona);
 			} catch (Exception e) {
 			}
 		}
@@ -34,16 +34,16 @@ public class CaronaController {
 	public String localizarCarona(String idSessao, String origem, String destino)
 			throws Exception {
 		if (idSessao == null) {
-			throw new CaronaException("Sess�o inv�lida");
+			throw new CaronaException("Sessão inválida");
 		}
 
 		if (origem.equals("-") || origem.equals("()") || origem.equals("!")
 				|| origem.equals("!?")) {
-			throw new CaronaException("Origem inv�lida");
+			throw new CaronaException("Origem inválida");
 		}
 
 		if (destino.equals(".") || destino.equals("()") || destino.equals("!?")) {
-			throw new CaronaException("Destino inv�lido");
+			throw new CaronaException("Destino inválido");
 		}
 
 		if (!origem.isEmpty() && !destino.isEmpty()) {
@@ -67,7 +67,7 @@ public class CaronaController {
 
 	private String origemDestinoCarona(String origem, String destino) {
 		String ids = "{";
-		boolean flag = true;// indica se a quantidade de ids � 0
+		boolean flag = true;// indica se a quantidade de ids = 0
 		for (Carona carona : caronas) {
 			if (carona.getLocalDeOrigem().equals(origem)
 					&& carona.getLocalDeDestino().equals(destino)) {
@@ -88,8 +88,8 @@ public class CaronaController {
 
 	private String origemDestinoCarona() {
 		String ids = "{";
-		boolean flag = true;// indica se a quantidade de ids � 0 (Serve para
-							// auxiliar na formata��o da string de retorno
+		boolean flag = true;// indica se a quantidade de ids  = 0 (Serve para
+							// auxiliar na formatação da string de retorno
 		for (Carona carona : caronas) {
 			if (!flag) {
 				ids += ",";
@@ -103,7 +103,7 @@ public class CaronaController {
 
 	private String origemCarona(String origem) {
 		String ids = "{";
-		boolean flag = true;// indica se a quantidade de ids � 0
+		boolean flag = true;// indica se a quantidade de ids = 0
 		for (Carona carona : caronas) {
 			if (carona.getLocalDeOrigem().equals(origem)) {
 				if (!flag) {
@@ -119,7 +119,7 @@ public class CaronaController {
 
 	private String destinoCarona(String destino) {
 		String ids = "{";
-		boolean flag = true;// indica se a quantidade de ids � 0
+		boolean flag = true;// indica se a quantidade de ids = 0
 		for (Carona carona : caronas) {
 			if (carona.getLocalDeDestino().equals(destino)) {
 				if (!flag) {
@@ -149,36 +149,36 @@ public class CaronaController {
 			String destino, String data, String hora, String qtdDeVagas)
 			throws Exception {
 		if (idSessao == null || idSessao.trim().isEmpty()) {
-			throw new SessaoException("Sess�o inv�lida");
+			throw new SessaoException("Sessão inválida");
 		}
 		if (!SessaoController.hasSessao(idSessao)) {
-			throw new SessaoException("Sess�o inexistente");
+			throw new SessaoException("Sessão inexistente");
 		}
 		if (origem == null || origem.trim().isEmpty()) {
-			throw new CaronaException("Origem inv�lida");
+			throw new CaronaException("Origem inválida");
 		}
 		if (destino == null || destino.trim().isEmpty()) {
-			throw new CaronaException("Destino inv�lido");
+			throw new CaronaException("Destino inválido");
 		}
 		if (data == null || data.trim().isEmpty()) {
-			throw new CaronaException("Data inv�lida");
+			throw new CaronaException("Data inválida");
 		}
 		if (!isData(data)) {
-			throw new CaronaException("Data inv�lida");
+			throw new CaronaException("Data inválida");
 		}
 		if (hora == null || hora.trim().isEmpty()) {
-			throw new CaronaException("Hora inv�lida");
+			throw new CaronaException("Hora inválida");
 		}
 		if (!isHora(hora)) {
-			throw new CaronaException("Hora inv�lida");
+			throw new CaronaException("Hora inválida");
 		}
 		if (qtdDeVagas == null || qtdDeVagas == "") {
-			throw new CaronaException("Vaga inv�lida");
+			throw new CaronaException("Vaga inválida");
 		}
 		try {
 			Integer.parseInt(qtdDeVagas);
 		} catch (Exception e) {
-			throw new CaronaException("Vaga inv�lida");
+			throw new CaronaException("Vaga inválida");
 		}
 
 		carona = new Carona();
@@ -223,7 +223,7 @@ public class CaronaController {
 	}
 
 	/**
-	 * Retorna o atributo que o usu�rio precisar (origem, destino, data e hora).
+	 * Retorna o atributo que o usuario precisar (origem, destino, data e hora).
 	 * 
 	 * @param idCarona
 	 * @param atributo
@@ -233,14 +233,14 @@ public class CaronaController {
 	public String getAtributoCarona(String idCarona, String atributo)
 			throws CaronaException {
 		if (idCarona == null || idCarona.equals("")) {
-			throw new CaronaException("Identificador do carona � inv�lido");
+			throw new CaronaException("Identificador do carona é inválido");
 		}
 
 		if (atributo == null) {
-			throw new CaronaException("Atributo inv�lido");
+			throw new CaronaException("Atributo inválido");
 		}
 		if (atributo.equals("")) {
-			throw new CaronaException("Atributo inv�lido");
+			throw new CaronaException("Atributo inválido");
 		}
 		if (!idCaronaExistir(idCarona)) {
 			throw new CaronaException("Item inexistente");
@@ -286,7 +286,7 @@ public class CaronaController {
 	 */
 	public String getTrajeto(String idCarona) throws CaronaException {
 		if (idCarona == null) {
-			throw new CaronaException("Trajeto Inv�lida");
+			throw new CaronaException("Trajeto Inválida");
 		}
 		if (idCarona.trim().isEmpty()) {
 			throw new CaronaException("Trajeto Inexistente");
@@ -314,7 +314,7 @@ public class CaronaController {
 	 */
 	public String getCarona(String idCarona) throws CaronaException {
 		if (idCarona == null || String.valueOf(idCarona) == "") {
-			throw new CaronaException("Carona Inv�lida");
+			throw new CaronaException("Carona Inválida");
 		}
 		int valor;
 		try {

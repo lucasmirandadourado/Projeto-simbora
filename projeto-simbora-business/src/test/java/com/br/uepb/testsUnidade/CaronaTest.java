@@ -10,7 +10,12 @@ import org.junit.runners.MethodSorters;
 import com.br.uepb.controller.CaronaController;
 import com.br.uepb.controller.SessaoController;
 import com.br.uepb.controller.UsuarioController;
+import com.br.uepb.dao.CaronaDao;
+import com.br.uepb.dao.UsuarioDao;
 import com.br.uepb.domain.Carona;
+import com.br.uepb.domain.UsuarioDomain;
+import com.br.uepb.exception.CaronaException;
+import com.br.uepb.exception.SessaoException;
 
 
 /**
@@ -32,8 +37,8 @@ public class CaronaTest {
 	@Before
 	public void test() {
 
-		new CaronaDaoImp().excluirTudo();
-		new UsuarioDaoImp().excluirTudo();
+		new CaronaDao().excluirTudo();
+		new UsuarioDao().excluirTudo();
 		
 		carona = new Carona();
 		controller = new CaronaController();
@@ -45,7 +50,7 @@ public class CaronaTest {
 
 	@Test
 	public void testA_CadastrarCarona() throws Exception {
-		// Ser�o criados 3 usuarios. (cria usuario, abrir sessao e criarCarona)
+		// Serão criados 3 usuarios. (cria usuario, abrir sessao e criarCarona)
 		usuarioController.criarUsuario("mark", "m@rk", "Mark Zuckerberg",
 				"Palo Alto, California", "mark@facebook.com");
 		try {
@@ -64,7 +69,7 @@ public class CaronaTest {
 			e.printStackTrace();
 		}
 
-		// Cria��o o 2� usu�rio
+		// Criado o 2º usuário
 		usuarioController.criarUsuario("thiago", "thi@go", "Thiago Batista",
 				"Rua", "thiagobatista@gmail.com");
 		try {
@@ -112,7 +117,7 @@ public class CaronaTest {
 		} catch (SessaoException e) {
 			assertEquals("Sess�o inv�lida", e.getMessage());
 		}
-		// Oriem = "" ou null
+		// Origem = "" ou null
 		try {
 			controller.cadastrarCarona("bruno", "", "Campina Grande", "01/04/2016", "10:00", "3");
 		} catch (CaronaException e) {

@@ -1,15 +1,15 @@
 package com.br.uepb.controller;
 
-import java.util.ArrayList; 
+import java.util.ArrayList;  
 import java.util.List;
 
-import com.br.uepb.dao.UsuarioDaoImp;
+import com.br.uepb.dao.UsuarioDao;
 import com.br.uepb.domain.Sessao;
 import com.br.uepb.domain.Usuario;
 import com.br.uepb.exception.SessaoException;
 
 /**
- * Controla a {@link Sessao}. M�todos: <li>abrirSessao</li> <li>encerrarSessao</li>
+ * Controla a {@link Sessao}. Métodos: <li>abrirSessao</li> <li>encerrarSessao</li>
  * <li>getSessao</li> <li>setUsuarios</li>
  * 
  * @author Lucas Miranda e Bruno Clementino
@@ -19,15 +19,15 @@ public class SessaoController {
 
 	private static List<Sessao> sessoes = new ArrayList<Sessao>();
 	/**
-	 * Foi necessario colocar <code>static</code> para n�o ser necess�rio
+	 * Foi necessario colocar <code>static</code> para não ser necessário
 	 * instanciar outra {@link List}.
 	 */
-	private static List<Usuario> usuarios = new UsuarioDaoImp().list();
+	private static List<Usuario> usuarios = new UsuarioDao().list();
 
 	/**
-	 * Ao abrir a sess�o � necess�rio o login e senha do usu�rio. Esse metodo
-	 * retornar� o idSessao que � o login do usu�rio. Caso os parametros tenham
-	 * sido inseridos errados ser� gerado um erro de <b>Usu�rio inexistente</b>
+	 * Ao abrir a sessão é necessário o login e senha do usuário. Esse método
+	 * retornará o idSessao que é o login do usuário. Caso os parametros tenham
+	 * sido inseridos errados será gerado um erro de <b>Usuário inexistente</b>
 	 *
 	 * <br>
 	 * 

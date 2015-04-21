@@ -1,11 +1,10 @@
 package com.br.uepb.controller;
 
+import java.util.List; 
 
-import java.util.List;
-
-import com.DAO.SolicitacaoVagasDaoImp;
-import com.model.Carona;
-import com.model.SolicitacaoVagas;
+import com.br.uepb.dao.impl.SolicitacaoVagasDaoImp;
+import com.br.uepb.domain.Carona;
+import com.br.uepb.domain.SolicitacaoVagas;
 
 public class SolicitacaoVagasController {
 
@@ -58,13 +57,9 @@ public class SolicitacaoVagasController {
 					return;
 				}else{
 					throw new Exception("Solicita��o inexistente");
-				}
-				
-				
-			}
-			
-		}
-		
+				}				
+			}			
+		}		
 	}
 	
 	public String getAtributo(String idSolicitacao, String atributo) {

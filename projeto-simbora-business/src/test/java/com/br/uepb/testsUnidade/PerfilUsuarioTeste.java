@@ -1,9 +1,18 @@
 package com.br.uepb.testsUnidade;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.*; 
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.br.uepb.controller.CaronaController;
+import com.br.uepb.controller.PerfilController;
+import com.br.uepb.controller.SessaoController;
+import com.br.uepb.controller.UsuarioController;
+import com.br.uepb.exception.CaronaException;
+import com.br.uepb.exception.PerfilException;
+import com.br.uepb.exception.SessaoException;
+import com.br.uepb.exception.UsuarioException;
 
 
 public class PerfilUsuarioTeste {
@@ -66,29 +75,29 @@ public class PerfilUsuarioTeste {
 		} catch (PerfilException e) {
 			assertEquals("", e.getMessage());
 		} catch (UsuarioException e) {
-			assertEquals("Login inv�lido", e.getMessage());
+			assertEquals("Login inválido", e.getMessage());
 		}
 
-		// Acessar os perfis que n�o existam!
+		// Acessar os perfis que não existam!
 		try {
 			perfilUsuario.getAtributoPerfil("ana", null);
 
 		} catch (PerfilException e) {
-			assertEquals("Atributo inv�lido", e.getMessage());
+			assertEquals("Atributo inválido", e.getMessage());
 		}
 		
 		try {
 			perfilUsuario.getAtributoPerfil("ana", "      ");
 
 		} catch (PerfilException e) {
-			assertEquals("Atributo inv�lido", e.getMessage());
+			assertEquals("Atributo inválido", e.getMessage());
 		}		
 		
 		// Atributos que n�o existam!
 		try {
 			perfilUsuario.getAtributoPerfil("ana", "quantidade de filhos");
 		} catch (PerfilException e) {
-			assertEquals("Login inv�lido", e.getMessage());
+			assertEquals("Login inválido", e.getMessage());
 		} catch (UsuarioException e) {
 			assertEquals("Atributo inexistente", e.getMessage());
 		}		
@@ -107,15 +116,15 @@ public class PerfilUsuarioTeste {
 		} catch (PerfilException e) {
 			assertEquals("Atributo inexistente", e.getMessage());
 		} catch (UsuarioException e) {
-			assertEquals("Login inv�lido", e.getMessage());
+			assertEquals("Login inválido", e.getMessage());
 		}
 		
 		try {
 			perfilUsuario.getAtributoPerfil("ana", "");
 		} catch (PerfilException e) {
-			assertEquals("Atributo inv�lido", e.getMessage());
+			assertEquals("Atributo inválido", e.getMessage());
 		} catch (UsuarioException e) {
-			assertEquals("Login inv�lido", e.getMessage());
+			assertEquals("Login inválido", e.getMessage());
 		}
 		
 		try {
@@ -123,7 +132,7 @@ public class PerfilUsuarioTeste {
 		} catch (PerfilException e) {
 			assertEquals("Atributo inexistente", e.getMessage());
 		} catch (UsuarioException e) {
-			assertEquals("Login inv�lido", e.getMessage());
+			assertEquals("Login inválido", e.getMessage());
 		}
 		
 		try {
@@ -131,7 +140,7 @@ public class PerfilUsuarioTeste {
 		} catch (PerfilException e) {
 			assertEquals("Atributo inexistente", e.getMessage());
 		} catch (UsuarioException e) {
-			assertEquals("Login inv�lido", e.getMessage());
+			assertEquals("Login inváslido", e.getMessage());
 		}
 	}
 }

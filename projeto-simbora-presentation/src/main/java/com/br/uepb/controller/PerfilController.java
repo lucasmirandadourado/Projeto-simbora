@@ -1,14 +1,13 @@
 package com.br.uepb.controller;
 
-
-import java.util.ArrayList; 
+import java.util.ArrayList;  
 import java.util.List;
 
-import com.exception.PerfilException;
-import com.exception.UsuarioException;
-import com.model.Carona;
-import com.model.SolicitacaoVagas;
-import com.model.Usuario;
+import com.br.uepb.domain.Carona;
+import com.br.uepb.domain.SolicitacaoVagas;
+import com.br.uepb.domain.Usuario;
+import com.br.uepb.exception.PerfilException;
+import com.br.uepb.exception.UsuarioException;
 
 public class PerfilController {
 	
